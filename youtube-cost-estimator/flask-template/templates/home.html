@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %}YouTube Influencer Pricing Estimator{% endblock %}</h1>
+    
+    {% if error %}
+    <div class="error-message">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <!-- Create a form that sends data to the root URL ('/') -->
+    <form method="POST" action="/">
+        <!-- Create an input field for the YouTube channel URL -->
+        <div class="form-group">
+            <label for="channel_url">Enter YouTube Channel URL:</label>
+            <input type="url" 
+                   id="channel_url" 
+                   name="channel_url" 
+                   required 
+                   placeholder="https://www.youtube.com/@ChannelName"
+                   class="form-control">
+        </div>
+        
+        <!-- Submit button to send the form -->
+        <button type="submit" class="submit-button">Calculate Estimate</button>
+    </form>
+{% endblock %}

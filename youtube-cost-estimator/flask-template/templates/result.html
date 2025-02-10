@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %}Sponsorship Price Estimate{% endblock %}</h1>
+    
+    <div class="stats-container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">{{ stats.title }}</h2>
+        
+        <div class="estimate-section">
+            <h3 style="color: #1b5e20; margin-bottom: 0.5rem;">Estimated Sponsorship Price</h3>
+            <div class="price">${{ "{:,.2f}".format(price.estimate) }}</div>
+        </div>
+
+        <div class="channel-stats">
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">Channel Statistics</h3>
+            <div class="stat-item">
+                <label>Subscribers</label>
+                <span>{{ "{:,}".format(stats.subscriber_count) }}</span>
+            </div>
+            <div class="stat-item">
+                <label>Total Views</label>
+                <span>{{ "{:,}".format(stats.view_count) }}</span>
+            </div>
+            <div class="stat-item">
+                <label>Total Videos</label>
+                <span>{{ "{:,}".format(stats.video_count) }}</span>
+            </div>
+        </div>
+
+        <div class="explanations">
+            <div class="technical-explanation">
+                <h3 style="color: #333; margin-bottom: 1rem;">Technical Analysis</h3>
+                <pre>{{ price.reasoning }}</pre>
+            </div>
+
+            <div class="ai-explanation">
+                <h3 style="color: #1976d2; margin-bottom: 1rem;">AI Analysis</h3>
+                <div class="ai-content">
+                    {{ ai_explanation | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center;">
+        <a href="{{ url_for('home') }}" class="back-button">Check Another Channel</a>
+    </div>
+{% endblock %}

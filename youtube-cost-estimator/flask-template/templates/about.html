@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %}About This Project{% endblock %}</h1>
+    
+    <div class="about-container">
+        <section class="about-section">
+            <h2>Tech Stack</h2>
+            <p>This project is built using:</p>
+            <ul>
+                <li><strong>Flask:</strong> A lightweight Python web framework chosen for its simplicity, single-purpose application and rendering results.</li>
+                <li><strong>YouTube Data API:</strong> For fetching reliable channel statistics and analytics directly from YouTube.</li>
+                <li><strong>Google Gemini AI:</strong> To compare my program analysis to AI to forge a better conclusion.</li>
+                <li><strong>HTML/CSS:</strong> Core functionality for the text adn its structure and I can use AI for it to make the frontend look nice easily.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Estimation Methodology</h2>
+            <p>Our pricing algorithm considers three key factors:</p>
+            <ul>
+                <li><strong>Audience Size Impact:</strong> AI did this: average views per video as the base metric, with a logarithmic scale to prevent overvaluation of viral content; it was implemented in the recent views multiplier</li>
+                <li><strong>View Duration:</strong> Initially AI used subscribers and views, but as a content creator, I thought it is better to measure view duration, making the price go up to 2x for channels with high retention rates.</li>
+                <li><strong>Subscriber Influence:</strong> AI told me to use a logarithmic scale to account for channel authority while preventing excessive inflation for mega-channels.</li>
+                <li><strong>Calculation for price</strong> Use of multipliers accounts for the various factors</li>
+            </ul>
+            <p>Use of CPM rates as a baseline as I learned about it watching videos about YouTube and know that is how the pay of a YT is measured</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Technical Challenges</h2>
+            <p>The main challenge was handling various YouTube channel URL formats and balancing use of AI with still coding my project myself:</p>
+            <ul>
+                <li>YouTube channels can have multiple URL formats:
+                    <code>/channel/UC...</code>, 
+                    <code>/c/channelname</code>, 
+                    <code>/@username</code>
+                </li>
+                <li>Solution: With the help of AI, I implemented regex pattern matching to extract channel identifiers from any valid YouTube channel URL format.</li>
+                <li>Additional challenge was obtaining accurate view duration data, which isn't directly available through the API. I overcame this by considering how average view duration as a percentage tends to decrease with longer videos.</li>
+            </ul>
+        </section>
+    </div>
+{% endblock %}
